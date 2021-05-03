@@ -30,9 +30,9 @@
 #  CHANGES.                                                                               #
 ###########################################################################################    
 
-from os import name
 import sys
 import sqlite3 as sql
+
 
 #IMPORTING ALL THE NECESSERY PYSIDE2 MODULES FOR OUR APPLICATION.
 from PyQt5 import QtCore, QtGui, QtWidgets
@@ -72,9 +72,13 @@ class dialogUi(QDialog):
         self.d.bn_close.clicked.connect(lambda: self.close())
 
         #-----> THIS FUNCTION WILL CHECKT WEATHER THE BUTRTON ON THE DIALOGBOX IS CLICKED, AND IF SO DIRECTS TO THE FUNCTINON : diag_return()
-        self.d.bn_east.clicked.connect(lambda: self.close())
+        self.d.bn_east.clicked.connect(lambda: self.east_pressed())
         self.d.bn_west.clicked.connect(lambda: self.close())
         ##############################################################################################
+
+    def east_pressed(self):
+        self.returned_value = True
+        self.close()
 
     ##################################################################################################                        ------(C2)
         #SINCE THERE I S NO TOP BAR TO MOVE THE DIALOGBOX OVER THE SCREEN WE HAVE TO DEFINE THE MOUSE EVENT THAT IS RESPONSIBLE FOR THE
@@ -337,12 +341,13 @@ class MainWindow(QMainWindow):
         # WIDGET TO MOVE: WE CHOOSE THE TOPMOST FRAME WHERE THE APPLICATION NAME IS PRESENT AS THE AREA TO MOVE THE WINDOW.
         self.ui.frame_appname.mouseMoveEvent = moveWindow  #CALLING THE FUNCTION TO CJANGE THE POSITION OF THE WINDOW DURING MOUSE DRAG
 
-        self.count_cargos_total()
-        self.ui.bn_home_page_next.clicked.connect(self.increment_current_page)
-        self.ui.bn_home_page_previous.clicked.connect(self.decrement_current_page)
-        self.ui.bug_table_widget.clicked.connect(self.activate_cards_page)
-        self.configure_table_widget()  
-        self.fill_in_table_widget()  
+        self.ui.bn_cargocards_page_next.clicked.connect(self.increment_current_cargopage)
+        self.ui.bn_cargocards_page_previous.clicked.connect(self.decrement_current_cargopage)
+        self.ui.cargolist_table_widget.clicked.connect(self.activate_cargocards_page)
+        self.ui.bn_cargocard_delete.clicked.connect(self.delete_cargocards_page)
+        self.ui.bn_cargocard_create.clicked.connect(self.insert_cargocards_page)
+        self.ui.bn_cargocard_edit.clicked.connect(self.update_cargocards_page)
+        self.reload_contents()
 
     #----> FUNCTION TO CAPTURE THE INITIAL POSITION OF THE MOUSE: NECESSERY FOR THE moveWindow FUNCTION
     def mousePressEvent(self, event):
@@ -357,8 +362,10 @@ class MainWindow(QMainWindow):
     #DURING THE APPEARENCE OF THIS WINDOW, YOU CANNOT USE THE MAINWINDOW, YOU SHPULD EITHER PRESS ANY ONE OFT HE PROVIDED BUTTONS
     #OR JUST CLODE THE DIALOG BOX.
     def dialogexec(self, heading, message, icon, btn1, btn2):
+        self.diag.returned_value = False
         dialogUi.dialogConstrict(self.diag, heading, message, icon, btn1, btn2)
         self.diag.exec_()
+        return self.diag.returned_value
     #############################################################
 
 
@@ -370,15 +377,15 @@ class MainWindow(QMainWindow):
     ##############################################################
 
     def configure_table_widget(self):
-        self.ui.bug_table_widget
-        self.ui.bug_table_widget.setAutoFillBackground(True)
-        self.ui.bug_table_widget.setSizeAdjustPolicy(
+        self.ui.cargolist_table_widget
+        self.ui.cargolist_table_widget.setAutoFillBackground(True)
+        self.ui.cargolist_table_widget.setSizeAdjustPolicy(
             QtWidgets.QAbstractScrollArea.AdjustToContents)
-        self.ui.bug_table_widget.setColumnWidth(0, 25)
-        self.ui.bug_table_widget.setColumnWidth(1, 150)
-        self.ui.bug_table_widget.setColumnWidth(2, 150)
-        self.ui.bug_table_widget.setColumnWidth(3, 150)
-        self.ui.bug_table_widget.horizontalHeader().setStretchLastSection(True)
+        self.ui.cargolist_table_widget.setColumnWidth(0, 25)
+        self.ui.cargolist_table_widget.setColumnWidth(1, 150)
+        self.ui.cargolist_table_widget.setColumnWidth(2, 150)
+        self.ui.cargolist_table_widget.setColumnWidth(3, 150)
+        self.ui.cargolist_table_widget.horizontalHeader().setStretchLastSection(True)
 
     def fill_in_table_widget(self):
         with sql.connect('db.sqlite') as con:
@@ -395,15 +402,15 @@ class MainWindow(QMainWindow):
             ''')
             total_cargos = cur.fetchall()
             for i, row_values in enumerate(total_cargos):
-                self.ui.bug_table_widget.insertRow(i)
+                self.ui.cargolist_table_widget.insertRow(i)
                 for j, item in enumerate(row_values):
-                    self.ui.bug_table_widget.setItem(i , j, QtWidgets.QTableWidgetItem(f'{item}'))
+                    self.ui.cargolist_table_widget.setItem(i , j, QtWidgets.QTableWidgetItem(f'{item}'))
 
-    def activate_cards_page(self, index):
+    def activate_cargocards_page(self, index):
         try:
-            cur_item = self.ui.bug_table_widget.item(index.row(), 0).text()
+            cur_item = self.ui.cargolist_table_widget.item(index.row(), 0).text()
             self.ui.line_home_page_current.setText(cur_item)
-            self.get_homepage_contents()
+            self.reload_cargopage_contents()
             self.ui.bn_bug.click()
         except AttributeError:
             return
@@ -411,27 +418,37 @@ class MainWindow(QMainWindow):
     def count_cargos_total(self):
         with sql.connect('db.sqlite') as con:
             cur = con.cursor()
-            cur.execute('select count(id) from cargo')
-            count = cur.fetchone()[0]
-            if count:
-                self.ui.line_home_page_total.setText(str(count))
-                self.ui.line_home_page_current.setText(str(1))
-                self.get_homepage_contents()
+            cur.execute('select max(id) from cargo')
+            max_id = cur.fetchone()[0]
+            if max_id:
+                self.ui.line_home_page_total.setText(str(max_id))
+                cur.execute('select min(id) from cargo')
+                self.minimal_cargo_id = cur.fetchone()[0]
+                self.ui.line_home_page_current.setText(str(self.minimal_cargo_id))
+                self.reload_cargopage_contents()
 
-    def decrement_current_page(self):
+    def decrement_current_cargopage(self):
         current_id = int(self.ui.line_home_page_current.text())
-        if current_id > 1:
+
+        if current_id > self.minimal_cargo_id:
             self.ui.line_home_page_current.setText(str(current_id - 1))
-            self.get_homepage_contents()
+            try:
+                self.reload_cargopage_contents()
+            except ValueError:
+                self.decrement_current_cargopage()
 
-    def increment_current_page(self):
+    def increment_current_cargopage(self):
         current_id = int(self.ui.line_home_page_current.text())
-        total_pages = int(self.ui.line_home_page_total.text())
-        if current_id < total_pages:
+        self.maximal_cargo_id = int(self.ui.line_home_page_total.text())
+        if current_id < self.maximal_cargo_id:
             self.ui.line_home_page_current.setText(str(current_id +1))
-            self.get_homepage_contents()
+            try:
+                self.reload_cargopage_contents()
+            except ValueError:
+                self.increment_current_cargopage()
 
-    def get_homepage_contents(self):
+
+    def reload_cargopage_contents(self):
         with sql.connect('db.sqlite') as con:
             cur = con.cursor()
             current_id = int(self.ui.line_home_page_current.text())
@@ -460,6 +477,183 @@ class MainWindow(QMainWindow):
             self.ui.line_home_value08.setText(str(page[8]))
             self.ui.line_home_value09.setText(str(page[9]))
             self.ui.line_home_value10.setText(str(page[10]))
+
+
+    def delete_cargocards_page(self):
+        current_id = int(self.ui.line_home_page_current.text())
+        answer = self.dialogexec("Внимание", 
+            f"Запись ID={current_id} будет удалена. Продолжить?",
+                "icons/1x/errorAsset 55.png", "Нет", "Да")
+        if answer:
+            with sql.connect('db.sqlite') as con:
+                cur = con.cursor()
+                cur.execute(f'delete from cargo where id = {current_id}')
+        self.reload_contents()
+
+    def insert_cargocards_page(self):
+        values = list()
+        values.append(self.ui.line_home_value01.text())
+        values.append(self.ui.line_home_value02.text())
+        values.append(self.ui.line_home_value03.text())
+        values.append(self.ui.line_home_value04.text())
+        values.append(self.ui.line_home_value05.text())
+        values.append(self.ui.line_home_value06.text())
+        values.append(self.ui.line_home_value07.text())
+        values.append(self.ui.line_home_value08.text())
+        values.append(self.ui.line_home_value09.text())
+        values.append(self.ui.line_home_value10.text())
+
+        try:
+            with sql.connect('db.sqlite') as con:
+                cur = con.cursor()
+                self._query = f'select id from cargo_size_category where name = "{values[5]}"'
+                cur.execute(self._query)
+                values[5] = cur.fetchone()[0]
+
+                self._query = f'select id from status where name = "{values[6]}"'
+                cur.execute(self._query)
+                values[6] = cur.fetchone()[0]
+
+                self._query = f'select id from car where name = "{values[7]}"'
+                cur.execute(self._query)
+                values[7] = cur.fetchone()[0]  
+
+                self._query = f'select id from warehouse where address = "{values[8]}"'
+                cur.execute(self._query)
+                values[8] = cur.fetchone()[0]   
+
+                self._query = f'select id from warehouse where address = "{values[9]}"'
+                cur.execute(self._query)
+                values[9] = cur.fetchone()[0]      
+        except Exception as e:
+            self.errorexec(f"{e}\n\n{self._query}", "icons/1x/errorAsset 55.png", "Ок")
+            return
+
+        insert_query = """
+        INSERT INTO cargo (            
+        name, weight, estimated_cost, date_sent, date_arrival, cargo_size_category, 
+        status, car, departure_warehouse, destination_warehouse
+            )
+        VALUES(?,?,?,?,?,?,?,?,?,?)
+        """
+
+        try:
+            with sql.connect('db.sqlite') as con:
+                cur = con.cursor()
+                cur.execute(insert_query, values)
+        except Exception as e:
+            self.errorexec(f"{e}", "icons/1x/errorAsset 55.png", "Ок")
+            return
+
+        self.reload_contents()
+        self.ui.line_home_page_current.setText(str(cur.lastrowid))
+        self.reload_cargopage_contents()
+
+    def update_cargocards_page(self):
+        current_id = int(self.ui.line_home_page_current.text())
+
+        answer = self.dialogexec("Внимание", 
+            f"Запись ID={current_id} будет изменена. Продолжить?",
+                "icons/1x/errorAsset 55.png", "Нет", "Да")
+        if not answer:
+            return
+
+        values = list()
+        values.append(self.ui.line_home_value01.text())
+        values.append(self.ui.line_home_value02.text())
+        values.append(self.ui.line_home_value03.text())
+        values.append(self.ui.line_home_value04.text())
+        values.append(self.ui.line_home_value05.text())
+        values.append(self.ui.line_home_value06.text())
+        values.append(self.ui.line_home_value07.text())
+        values.append(self.ui.line_home_value08.text())
+        values.append(self.ui.line_home_value09.text())
+        values.append(self.ui.line_home_value10.text())
+
+        try:
+            with sql.connect('db.sqlite') as con:
+                cur = con.cursor()
+                self._query = f'select id from cargo_size_category where name = "{values[5]}"'
+                cur.execute(self._query)
+                values[5] = cur.fetchone()[0]
+
+                self._query = f'select id from status where name = "{values[6]}"'
+                cur.execute(self._query)
+                values[6] = cur.fetchone()[0]
+
+                self._query = f'select id from car where name = "{values[7]}"'
+                cur.execute(self._query)
+                values[7] = cur.fetchone()[0]  
+
+                self._query = f'select id from warehouse where address = "{values[8]}"'
+                cur.execute(self._query)
+                values[8] = cur.fetchone()[0]   
+
+                self._query = f'select id from warehouse where address = "{values[9]}"'
+                cur.execute(self._query)
+                values[9] = cur.fetchone()[0]      
+        except Exception as e:
+            self.errorexec(f"{e}\n\n{self._query}", "icons/1x/errorAsset 55.png", "Ок")
+            return
+
+        update_query = f"""
+        UPDATE cargo SET            
+        name = ?, 
+        weight = ?, 
+        estimated_cost = ?, 
+        date_sent = ?, 
+        date_arrival = ?, 
+        cargo_size_category = ?, 
+        status = ?, 
+        car = ?, 
+        departure_warehouse = ?, 
+        destination_warehouse = ?
+        WHERE ID = {current_id}
+        """
+
+        try:
+            with sql.connect('db.sqlite') as con:
+                cur = con.cursor()
+                cur.execute(update_query, values)
+        except Exception as e:
+            self.errorexec(f"{e}", "icons/1x/errorAsset 55.png", "Ок")
+            return
+
+        self.reload_contents()
+        self.reload_cargopage_contents()        
+
+    def reload_contents(self):
+        self.clear_cargolist_table_widget()
+        self.clear_cargocards_page()
+        self.count_cargos_total()
+        self.configure_table_widget()  
+        self.fill_in_table_widget()
+    
+    def clear_cargocards_page(self):
+        self.ui.line_home_value01.setText(str(" "))
+        self.ui.line_home_value02.setText(str(" "))
+        self.ui.line_home_value03.setText(str(" "))
+        self.ui.line_home_value04.setText(str(" "))
+        self.ui.line_home_value05.setText(str(" "))
+        self.ui.line_home_value06.setText(str(" "))
+        self.ui.line_home_value07.setText(str(" "))
+        self.ui.line_home_value08.setText(str(" "))
+        self.ui.line_home_value09.setText(str(" "))
+        self.ui.line_home_value10.setText(str(" "))
+
+    def clear_cargolist_table_widget(self):
+        while self.ui.cargolist_table_widget.rowCount() > 0:
+            self.ui.cargolist_table_widget.removeRow(0)
+
+    def test_method_page(self):
+        # self.dialogexec("Warning", "The Contact Infromtion will be Deleted, Do you want to continue.", "icons/1x/errorAsset 55.png", "Cancel", "Yes"))
+        with sql.connect('db.sqlite') as con:
+            cur = con.cursor()
+            cur.execute('select last_insert_rowid()')
+            tmp = cur.fetchone()[0]
+            print(tmp)
+
+    
 
 
 if __name__ == "__main__":

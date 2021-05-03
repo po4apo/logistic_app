@@ -393,8 +393,8 @@ class Ui_MainWindow(object):
         self.frame_9.setObjectName("frame_9")
         self.horizontalLayout_30 = QtWidgets.QHBoxLayout(self.frame_9)
         self.horizontalLayout_30.setObjectName("horizontalLayout_30")
-        self.bug_table_widget = QtWidgets.QTableWidget(self.frame_9)
-        self.bug_table_widget.setStyleSheet("QTableWidget {\n"
+        self.cargolist_table_widget = QtWidgets.QTableWidget(self.frame_9)
+        self.cargolist_table_widget.setStyleSheet("QTableWidget {\n"
 "    border: 1px solid #cccccc;\n"
 "    border-radius: 5px;\n"
 "}\n"
@@ -405,23 +405,23 @@ class Ui_MainWindow(object):
 "    color: rgb(255, 255, 255);\n"
 "}\n"
 "")
-        self.bug_table_widget.setObjectName("bug_table_widget")
-        self.bug_table_widget.setColumnCount(5)
-        self.bug_table_widget.setRowCount(1)
+        self.cargolist_table_widget.setObjectName("cargolist_table_widget")
+        self.cargolist_table_widget.setColumnCount(5)
+        self.cargolist_table_widget.setRowCount(1)
         item = QtWidgets.QTableWidgetItem()
-        self.bug_table_widget.setVerticalHeaderItem(0, item)
+        self.cargolist_table_widget.setVerticalHeaderItem(0, item)
         item = QtWidgets.QTableWidgetItem()
-        self.bug_table_widget.setHorizontalHeaderItem(0, item)
+        self.cargolist_table_widget.setHorizontalHeaderItem(0, item)
         item = QtWidgets.QTableWidgetItem()
-        self.bug_table_widget.setHorizontalHeaderItem(1, item)
+        self.cargolist_table_widget.setHorizontalHeaderItem(1, item)
         item = QtWidgets.QTableWidgetItem()
-        self.bug_table_widget.setHorizontalHeaderItem(2, item)
+        self.cargolist_table_widget.setHorizontalHeaderItem(2, item)
         item = QtWidgets.QTableWidgetItem()
-        self.bug_table_widget.setHorizontalHeaderItem(3, item)
+        self.cargolist_table_widget.setHorizontalHeaderItem(3, item)
         item = QtWidgets.QTableWidgetItem()
-        self.bug_table_widget.setHorizontalHeaderItem(4, item)
-        self.bug_table_widget.horizontalHeader().setMinimumSectionSize(100)
-        self.horizontalLayout_30.addWidget(self.bug_table_widget)
+        self.cargolist_table_widget.setHorizontalHeaderItem(4, item)
+        self.cargolist_table_widget.horizontalHeader().setMinimumSectionSize(100)
+        self.horizontalLayout_30.addWidget(self.cargolist_table_widget)
         self.verticalLayout_7.addWidget(self.frame_9)
         self.stackedWidget.addWidget(self.page_home)
         self.page_bug = QtWidgets.QWidget()
@@ -477,7 +477,7 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.line_home_page_current.sizePolicy().hasHeightForWidth())
         self.line_home_page_current.setSizePolicy(sizePolicy)
         self.line_home_page_current.setMinimumSize(QtCore.QSize(50, 25))
-        self.line_home_page_current.setMaximumSize(QtCore.QSize(16777215, 25))
+        self.line_home_page_current.setMaximumSize(QtCore.QSize(75, 25))
         font = QtGui.QFont()
         font.setFamily("Segoe UI")
         font.setPointSize(10)
@@ -524,7 +524,7 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.line_home_page_total.sizePolicy().hasHeightForWidth())
         self.line_home_page_total.setSizePolicy(sizePolicy)
         self.line_home_page_total.setMinimumSize(QtCore.QSize(50, 25))
-        self.line_home_page_total.setMaximumSize(QtCore.QSize(16777215, 25))
+        self.line_home_page_total.setMaximumSize(QtCore.QSize(75, 25))
         font = QtGui.QFont()
         font.setFamily("Segoe UI")
         font.setPointSize(10)
@@ -549,14 +549,14 @@ class Ui_MainWindow(object):
         self.horizontalLayout_9.addWidget(self.line_home_page_total)
         spacerItem3 = QtWidgets.QSpacerItem(10, 20, QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout_9.addItem(spacerItem3)
-        self.bn_home_page_previous = QtWidgets.QPushButton(self.frame_5)
-        self.bn_home_page_previous.setMinimumSize(QtCore.QSize(45, 25))
-        self.bn_home_page_previous.setMaximumSize(QtCore.QSize(69, 25))
+        self.bn_cargocards_page_previous = QtWidgets.QPushButton(self.frame_5)
+        self.bn_cargocards_page_previous.setMinimumSize(QtCore.QSize(45, 25))
+        self.bn_cargocards_page_previous.setMaximumSize(QtCore.QSize(69, 25))
         font = QtGui.QFont()
         font.setFamily("Segoe UI")
         font.setPointSize(10)
-        self.bn_home_page_previous.setFont(font)
-        self.bn_home_page_previous.setStyleSheet("QPushButton {\n"
+        self.bn_cargocards_page_previous.setFont(font)
+        self.bn_cargocards_page_previous.setStyleSheet("QPushButton {\n"
 "    border: 2px solid rgb(51,51,51);\n"
 "    border-radius: 5px;    \n"
 "    color:rgb(255,255,255);\n"
@@ -578,16 +578,16 @@ class Ui_MainWindow(object):
 "    border: 2px solid rgb(112,112,112);\n"
 "    background-color: rgb(112,112,112);\n"
 "}")
-        self.bn_home_page_previous.setObjectName("bn_home_page_previous")
-        self.horizontalLayout_9.addWidget(self.bn_home_page_previous)
-        self.bn_home_page_next = QtWidgets.QPushButton(self.frame_5)
-        self.bn_home_page_next.setMinimumSize(QtCore.QSize(45, 25))
-        self.bn_home_page_next.setMaximumSize(QtCore.QSize(69, 25))
+        self.bn_cargocards_page_previous.setObjectName("bn_cargocards_page_previous")
+        self.horizontalLayout_9.addWidget(self.bn_cargocards_page_previous)
+        self.bn_cargocards_page_next = QtWidgets.QPushButton(self.frame_5)
+        self.bn_cargocards_page_next.setMinimumSize(QtCore.QSize(45, 25))
+        self.bn_cargocards_page_next.setMaximumSize(QtCore.QSize(69, 25))
         font = QtGui.QFont()
         font.setFamily("Segoe UI")
         font.setPointSize(10)
-        self.bn_home_page_next.setFont(font)
-        self.bn_home_page_next.setStyleSheet("QPushButton {\n"
+        self.bn_cargocards_page_next.setFont(font)
+        self.bn_cargocards_page_next.setStyleSheet("QPushButton {\n"
 "    border: 2px solid rgb(51,51,51);\n"
 "    border-radius: 5px;    \n"
 "    color:rgb(255,255,255);\n"
@@ -609,8 +609,8 @@ class Ui_MainWindow(object):
 "    border: 2px solid rgb(112,112,112);\n"
 "    background-color: rgb(112,112,112);\n"
 "}")
-        self.bn_home_page_next.setObjectName("bn_home_page_next")
-        self.horizontalLayout_9.addWidget(self.bn_home_page_next)
+        self.bn_cargocards_page_next.setObjectName("bn_cargocards_page_next")
+        self.horizontalLayout_9.addWidget(self.bn_cargocards_page_next)
         spacerItem4 = QtWidgets.QSpacerItem(41, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout_9.addItem(spacerItem4)
         self.verticalLayout_5.addWidget(self.frame_5)
@@ -772,14 +772,14 @@ class Ui_MainWindow(object):
         self.frame_6.setObjectName("frame_6")
         self.horizontalLayout_8 = QtWidgets.QHBoxLayout(self.frame_6)
         self.horizontalLayout_8.setObjectName("horizontalLayout_8")
-        self.bn_android_contact_edit_3 = QtWidgets.QPushButton(self.frame_6)
-        self.bn_android_contact_edit_3.setMinimumSize(QtCore.QSize(69, 25))
-        self.bn_android_contact_edit_3.setMaximumSize(QtCore.QSize(69, 25))
+        self.bn_cargocard_edit = QtWidgets.QPushButton(self.frame_6)
+        self.bn_cargocard_edit.setMinimumSize(QtCore.QSize(95, 25))
+        self.bn_cargocard_edit.setMaximumSize(QtCore.QSize(69, 25))
         font = QtGui.QFont()
         font.setFamily("Segoe UI")
         font.setPointSize(11)
-        self.bn_android_contact_edit_3.setFont(font)
-        self.bn_android_contact_edit_3.setStyleSheet("QPushButton {\n"
+        self.bn_cargocard_edit.setFont(font)
+        self.bn_cargocard_edit.setStyleSheet("QPushButton {\n"
 "    border: 2px solid rgb(51,51,51);\n"
 "    border-radius: 5px;    \n"
 "    color:rgb(255,255,255);\n"
@@ -799,45 +799,16 @@ class Ui_MainWindow(object):
 "    border: 2px solid rgb(112,112,112);\n"
 "    background-color: rgb(112,112,112);\n"
 "}")
-        self.bn_android_contact_edit_3.setObjectName("bn_android_contact_edit_3")
-        self.horizontalLayout_8.addWidget(self.bn_android_contact_edit_3)
-        self.bn_android_contact_share_3 = QtWidgets.QPushButton(self.frame_6)
-        self.bn_android_contact_share_3.setMinimumSize(QtCore.QSize(69, 25))
-        self.bn_android_contact_share_3.setMaximumSize(QtCore.QSize(69, 25))
+        self.bn_cargocard_edit.setObjectName("bn_cargocard_edit")
+        self.horizontalLayout_8.addWidget(self.bn_cargocard_edit)
+        self.bn_cargocard_delete = QtWidgets.QPushButton(self.frame_6)
+        self.bn_cargocard_delete.setMinimumSize(QtCore.QSize(95, 25))
+        self.bn_cargocard_delete.setMaximumSize(QtCore.QSize(69, 25))
         font = QtGui.QFont()
         font.setFamily("Segoe UI")
         font.setPointSize(11)
-        self.bn_android_contact_share_3.setFont(font)
-        self.bn_android_contact_share_3.setStyleSheet("QPushButton {\n"
-"    border: 2px solid rgb(51,51,51);\n"
-"    border-radius: 5px;    \n"
-"    color:rgb(255,255,255);\n"
-"    background-color: rgb(51,51,51);\n"
-"}\n"
-"QPushButton:hover {\n"
-"    border: 2px solid rgb(0,143,150);\n"
-"    background-color: rgb(0,143,150);\n"
-"}\n"
-"QPushButton:pressed {    \n"
-"    border: 2px solid rgb(0,143,150);\n"
-"    background-color: rgb(51,51,51);\n"
-"}\n"
-"\n"
-"QPushButton:disabled {    \n"
-"    border-radius: 5px;    \n"
-"    border: 2px solid rgb(112,112,112);\n"
-"    background-color: rgb(112,112,112);\n"
-"}")
-        self.bn_android_contact_share_3.setObjectName("bn_android_contact_share_3")
-        self.horizontalLayout_8.addWidget(self.bn_android_contact_share_3)
-        self.bn_android_contact_delete_3 = QtWidgets.QPushButton(self.frame_6)
-        self.bn_android_contact_delete_3.setMinimumSize(QtCore.QSize(69, 25))
-        self.bn_android_contact_delete_3.setMaximumSize(QtCore.QSize(69, 25))
-        font = QtGui.QFont()
-        font.setFamily("Segoe UI")
-        font.setPointSize(11)
-        self.bn_android_contact_delete_3.setFont(font)
-        self.bn_android_contact_delete_3.setStyleSheet("QPushButton {\n"
+        self.bn_cargocard_delete.setFont(font)
+        self.bn_cargocard_delete.setStyleSheet("QPushButton {\n"
 "    border: 2px solid rgb(51,51,51);\n"
 "    border-radius: 5px;    \n"
 "    color:rgb(255,255,255);\n"
@@ -857,17 +828,17 @@ class Ui_MainWindow(object):
 "    border: 2px solid rgb(112,112,112);\n"
 "    background-color: rgb(112,112,112);\n"
 "}")
-        self.bn_android_contact_delete_3.setObjectName("bn_android_contact_delete_3")
-        self.horizontalLayout_8.addWidget(self.bn_android_contact_delete_3)
-        self.bn_android_contact_save_3 = QtWidgets.QPushButton(self.frame_6)
-        self.bn_android_contact_save_3.setEnabled(True)
-        self.bn_android_contact_save_3.setMinimumSize(QtCore.QSize(69, 25))
-        self.bn_android_contact_save_3.setMaximumSize(QtCore.QSize(69, 25))
+        self.bn_cargocard_delete.setObjectName("bn_cargocard_delete")
+        self.horizontalLayout_8.addWidget(self.bn_cargocard_delete)
+        self.bn_cargocard_create = QtWidgets.QPushButton(self.frame_6)
+        self.bn_cargocard_create.setEnabled(True)
+        self.bn_cargocard_create.setMinimumSize(QtCore.QSize(95, 25))
+        self.bn_cargocard_create.setMaximumSize(QtCore.QSize(95, 25))
         font = QtGui.QFont()
         font.setFamily("Segoe UI")
         font.setPointSize(11)
-        self.bn_android_contact_save_3.setFont(font)
-        self.bn_android_contact_save_3.setStyleSheet("QPushButton {\n"
+        self.bn_cargocard_create.setFont(font)
+        self.bn_cargocard_create.setStyleSheet("QPushButton {\n"
 "    border: 2px solid rgb(51,51,51);\n"
 "    border-radius: 5px;    \n"
 "    color:rgb(255,255,255);\n"
@@ -887,8 +858,8 @@ class Ui_MainWindow(object):
 "    border: 2px solid rgb(112,112,112);\n"
 "    background-color: rgb(112,112,112);\n"
 "}")
-        self.bn_android_contact_save_3.setObjectName("bn_android_contact_save_3")
-        self.horizontalLayout_8.addWidget(self.bn_android_contact_save_3)
+        self.bn_cargocard_create.setObjectName("bn_cargocard_create")
+        self.horizontalLayout_8.addWidget(self.bn_cargocard_create)
         spacerItem5 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout_8.addItem(spacerItem5)
         self.gridLayout_7.addWidget(self.frame_6, 10, 0, 1, 2)
@@ -2341,7 +2312,7 @@ class Ui_MainWindow(object):
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
-        self.stackedWidget.setCurrentIndex(0)
+        self.stackedWidget.setCurrentIndex(1)
         self.stackedWidget_android.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
@@ -2357,24 +2328,22 @@ class Ui_MainWindow(object):
         self.bn_cloud.setToolTip(_translate("MainWindow", "Cloud"))
         self.bn_android.setToolTip(_translate("MainWindow", "Android"))
         self.lab_bug_title.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:18pt; color:#ffffff;\">Список</span></p></body></html>"))
-        item = self.bug_table_widget.verticalHeaderItem(0)
-        item.setText(_translate("MainWindow", " "))
-        item = self.bug_table_widget.horizontalHeaderItem(0)
+        item = self.cargolist_table_widget.horizontalHeaderItem(0)
         item.setText(_translate("MainWindow", "ID"))
-        item = self.bug_table_widget.horizontalHeaderItem(1)
+        item = self.cargolist_table_widget.horizontalHeaderItem(1)
         item.setText(_translate("MainWindow", "Категория"))
-        item = self.bug_table_widget.horizontalHeaderItem(2)
+        item = self.cargolist_table_widget.horizontalHeaderItem(2)
         item.setText(_translate("MainWindow", "Дата отправления"))
-        item = self.bug_table_widget.horizontalHeaderItem(3)
+        item = self.cargolist_table_widget.horizontalHeaderItem(3)
         item.setText(_translate("MainWindow", "Дата прибытия"))
-        item = self.bug_table_widget.horizontalHeaderItem(4)
+        item = self.cargolist_table_widget.horizontalHeaderItem(4)
         item.setText(_translate("MainWindow", "Пункт назначения"))
         self.label_home_main_title.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:18pt;\">Транспортируемая единица</span></p></body></html>"))
         self.line_home_page_current.setText(_translate("MainWindow", "0"))
         self.label_home_main_slash.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:20pt; color:#ffffff;\">/</span></p></body></html>"))
         self.line_home_page_total.setText(_translate("MainWindow", "0"))
-        self.bn_home_page_previous.setText(_translate("MainWindow", "<"))
-        self.bn_home_page_next.setText(_translate("MainWindow", ">"))
+        self.bn_cargocards_page_previous.setText(_translate("MainWindow", "<"))
+        self.bn_cargocards_page_next.setText(_translate("MainWindow", ">"))
         self.label_home_line08.setText(_translate("MainWindow", "Т / С"))
         self.label_home_line05.setText(_translate("MainWindow", "Дата прибытия"))
         self.label_home_line10.setText(_translate("MainWindow", "Пункт назначения "))
@@ -2382,10 +2351,9 @@ class Ui_MainWindow(object):
         self.label_home_line06.setText(_translate("MainWindow", "Категория"))
         self.label_home_line07.setText(_translate("MainWindow", "Статус"))
         self.label_home_line03.setText(_translate("MainWindow", "Оценочная стоимость "))
-        self.bn_android_contact_edit_3.setText(_translate("MainWindow", "Edit"))
-        self.bn_android_contact_share_3.setText(_translate("MainWindow", "Share"))
-        self.bn_android_contact_delete_3.setText(_translate("MainWindow", "Delete"))
-        self.bn_android_contact_save_3.setText(_translate("MainWindow", "Save"))
+        self.bn_cargocard_edit.setText(_translate("MainWindow", "Изменить"))
+        self.bn_cargocard_delete.setText(_translate("MainWindow", "Удалить"))
+        self.bn_cargocard_create.setText(_translate("MainWindow", "Добавить"))
         self.label_home_line09.setText(_translate("MainWindow", "Пункт отправления"))
         self.label_home_line04.setText(_translate("MainWindow", "Дата отправления"))
         self.label_home_line01.setText(_translate("MainWindow", "Наименование "))
