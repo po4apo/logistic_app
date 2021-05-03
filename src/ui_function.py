@@ -33,7 +33,7 @@
 
 from main import * #IMPORTING THE MAIN.PY FILE
 
-from about import *
+from src.about import *
 
 
 GLOBAL_STATE = 0 #NECESSERY FOR CHECKING WEATHER THE WINDWO IS FULL SCREEN OR NOT
@@ -237,7 +237,7 @@ class UIFunction(MainWindow):
         # self.ui.lab_home_stat_hed.setText("Stat")
 
         ######### PAGE_BUG ############## BELOW DISPLAYS THE FUNCTION OF WIDGET, LABEL, PROGRESS BAR, E.T.C IN STACKEDWIDGET page_bug
-        self.ui.bn_bug_start.clicked.connect(lambda: APFunction.addNumbers(self, self.ui.comboBox_bug.currentText(), True))  
+        # self.ui.bn_bug_start.clicked.connect(lambda: APFunction.addNumbers(self, self.ui.comboBox_bug.currentText(), True))  
 
         # THIS CALLS A SIMPLE FUNCTION LOOPS THROW THE NUMBER FORWARDED BY THE COMBOBOX 'comboBox_bug' AND DISPLAY IN PROGRESS BAR
         #ALONGWITH MOVING THE PROGRESS CHUNK FROM 0 TO 100%

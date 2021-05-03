@@ -14,8 +14,8 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(800, 550)
-        MainWindow.setMinimumSize(QtCore.QSize(800, 550))
+        MainWindow.resize(900, 650)
+        MainWindow.setMinimumSize(QtCore.QSize(900, 650))
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setStyleSheet("background:rgb(91,90,90);")
         self.centralwidget.setObjectName("centralwidget")
@@ -70,7 +70,7 @@ class Ui_MainWindow(object):
         self.lab_appname.setSizePolicy(sizePolicy)
         font = QtGui.QFont()
         font.setFamily("Segoe UI Light")
-        font.setPointSize(16)
+        font.setPointSize(14)
         self.lab_appname.setFont(font)
         self.lab_appname.setStyleSheet("color:rgb(255,255,255);")
         self.lab_appname.setObjectName("lab_appname")
@@ -224,6 +224,8 @@ class Ui_MainWindow(object):
         self.bn_home.setFlat(True)
         self.bn_home.setObjectName("bn_home")
         self.horizontalLayout_15.addWidget(self.bn_home)
+        spacerItem = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.horizontalLayout_15.addItem(spacerItem)
         self.verticalLayout_3.addWidget(self.frame_home)
         self.frame_bug = QtWidgets.QFrame(self.frame_bottom_west)
         self.frame_bug.setMinimumSize(QtCore.QSize(80, 55))
@@ -354,11 +356,82 @@ class Ui_MainWindow(object):
         self.page_home = QtWidgets.QWidget()
         self.page_home.setStyleSheet("background:rgb(91,90,90);")
         self.page_home.setObjectName("page_home")
-        self.horizontalLayout_19 = QtWidgets.QHBoxLayout(self.page_home)
+        self.verticalLayout_7 = QtWidgets.QVBoxLayout(self.page_home)
+        self.verticalLayout_7.setContentsMargins(5, 5, 5, 5)
+        self.verticalLayout_7.setSpacing(5)
+        self.verticalLayout_7.setObjectName("verticalLayout_7")
+        self.frame_7 = QtWidgets.QFrame(self.page_home)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.frame_7.sizePolicy().hasHeightForWidth())
+        self.frame_7.setSizePolicy(sizePolicy)
+        self.frame_7.setMinimumSize(QtCore.QSize(0, 55))
+        self.frame_7.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_7.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_7.setObjectName("frame_7")
+        self.lab_bug_title = QtWidgets.QLabel(self.frame_7)
+        self.lab_bug_title.setGeometry(QtCore.QRect(25, 0, 810, 55))
+        self.lab_bug_title.setMinimumSize(QtCore.QSize(0, 55))
+        self.lab_bug_title.setMaximumSize(QtCore.QSize(16777215, 55))
+        font = QtGui.QFont()
+        font.setFamily("Segoe UI Semilight")
+        font.setPointSize(24)
+        self.lab_bug_title.setFont(font)
+        self.lab_bug_title.setStyleSheet("color:rgb(255,255,255);")
+        self.lab_bug_title.setObjectName("lab_bug_title")
+        self.verticalLayout_7.addWidget(self.frame_7)
+        self.frame_9 = QtWidgets.QFrame(self.page_home)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.frame_9.sizePolicy().hasHeightForWidth())
+        self.frame_9.setSizePolicy(sizePolicy)
+        self.frame_9.setMinimumSize(QtCore.QSize(0, 300))
+        self.frame_9.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_9.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_9.setObjectName("frame_9")
+        self.horizontalLayout_30 = QtWidgets.QHBoxLayout(self.frame_9)
+        self.horizontalLayout_30.setObjectName("horizontalLayout_30")
+        self.bug_table_widget = QtWidgets.QTableWidget(self.frame_9)
+        self.bug_table_widget.setStyleSheet("QTableWidget {\n"
+"    border: 1px solid #cccccc;\n"
+"    border-radius: 5px;\n"
+"}\n"
+"\n"
+"QTableWidget::item {\n"
+"    border: 1px solid #cccccc;\n"
+"    background-color: rgb(51, 51, 51);\n"
+"    color: rgb(255, 255, 255);\n"
+"}\n"
+"")
+        self.bug_table_widget.setObjectName("bug_table_widget")
+        self.bug_table_widget.setColumnCount(5)
+        self.bug_table_widget.setRowCount(1)
+        item = QtWidgets.QTableWidgetItem()
+        self.bug_table_widget.setVerticalHeaderItem(0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.bug_table_widget.setHorizontalHeaderItem(0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.bug_table_widget.setHorizontalHeaderItem(1, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.bug_table_widget.setHorizontalHeaderItem(2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.bug_table_widget.setHorizontalHeaderItem(3, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.bug_table_widget.setHorizontalHeaderItem(4, item)
+        self.bug_table_widget.horizontalHeader().setMinimumSectionSize(100)
+        self.horizontalLayout_30.addWidget(self.bug_table_widget)
+        self.verticalLayout_7.addWidget(self.frame_9)
+        self.stackedWidget.addWidget(self.page_home)
+        self.page_bug = QtWidgets.QWidget()
+        self.page_bug.setStyleSheet("background:rgb(91,90,90);")
+        self.page_bug.setObjectName("page_bug")
+        self.horizontalLayout_19 = QtWidgets.QHBoxLayout(self.page_bug)
         self.horizontalLayout_19.setContentsMargins(0, 5, 0, 5)
         self.horizontalLayout_19.setSpacing(0)
         self.horizontalLayout_19.setObjectName("horizontalLayout_19")
-        self.frame_home_main = QtWidgets.QFrame(self.page_home)
+        self.frame_home_main = QtWidgets.QFrame(self.page_bug)
         self.frame_home_main.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.frame_home_main.setFrameShadow(QtWidgets.QFrame.Plain)
         self.frame_home_main.setObjectName("frame_home_main")
@@ -374,8 +447,8 @@ class Ui_MainWindow(object):
         self.frame_5.setObjectName("frame_5")
         self.horizontalLayout_9 = QtWidgets.QHBoxLayout(self.frame_5)
         self.horizontalLayout_9.setObjectName("horizontalLayout_9")
-        spacerItem = QtWidgets.QSpacerItem(20, 20, QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Minimum)
-        self.horizontalLayout_9.addItem(spacerItem)
+        spacerItem1 = QtWidgets.QSpacerItem(20, 20, QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Minimum)
+        self.horizontalLayout_9.addItem(spacerItem1)
         self.label_home_main_title = QtWidgets.QLabel(self.frame_5)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(0)
@@ -386,7 +459,7 @@ class Ui_MainWindow(object):
         self.label_home_main_title.setMaximumSize(QtCore.QSize(16777215, 16777215))
         font = QtGui.QFont()
         font.setFamily("Segoe UI Semilight")
-        font.setPointSize(24)
+        font.setPointSize(20)
         self.label_home_main_title.setFont(font)
         self.label_home_main_title.setStyleSheet("QLabel {\n"
 "    color:rgb(255,255,255);\n"
@@ -394,8 +467,8 @@ class Ui_MainWindow(object):
         self.label_home_main_title.setTextFormat(QtCore.Qt.RichText)
         self.label_home_main_title.setObjectName("label_home_main_title")
         self.horizontalLayout_9.addWidget(self.label_home_main_title)
-        spacerItem1 = QtWidgets.QSpacerItem(20, 20, QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Minimum)
-        self.horizontalLayout_9.addItem(spacerItem1)
+        spacerItem2 = QtWidgets.QSpacerItem(20, 20, QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Minimum)
+        self.horizontalLayout_9.addItem(spacerItem2)
         self.line_home_page_current = QtWidgets.QLineEdit(self.frame_5)
         self.line_home_page_current.setEnabled(True)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
@@ -407,7 +480,7 @@ class Ui_MainWindow(object):
         self.line_home_page_current.setMaximumSize(QtCore.QSize(16777215, 25))
         font = QtGui.QFont()
         font.setFamily("Segoe UI")
-        font.setPointSize(12)
+        font.setPointSize(10)
         self.line_home_page_current.setFont(font)
         self.line_home_page_current.setStyleSheet("QLineEdit {\n"
 "    color:rgb(255,255,255);\n"
@@ -454,7 +527,7 @@ class Ui_MainWindow(object):
         self.line_home_page_total.setMaximumSize(QtCore.QSize(16777215, 25))
         font = QtGui.QFont()
         font.setFamily("Segoe UI")
-        font.setPointSize(12)
+        font.setPointSize(10)
         self.line_home_page_total.setFont(font)
         self.line_home_page_total.setStyleSheet("QLineEdit {\n"
 "    color:rgb(255,255,255);\n"
@@ -474,14 +547,14 @@ class Ui_MainWindow(object):
         self.line_home_page_total.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
         self.line_home_page_total.setObjectName("line_home_page_total")
         self.horizontalLayout_9.addWidget(self.line_home_page_total)
-        spacerItem2 = QtWidgets.QSpacerItem(10, 20, QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Minimum)
-        self.horizontalLayout_9.addItem(spacerItem2)
+        spacerItem3 = QtWidgets.QSpacerItem(10, 20, QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Minimum)
+        self.horizontalLayout_9.addItem(spacerItem3)
         self.bn_home_page_previous = QtWidgets.QPushButton(self.frame_5)
         self.bn_home_page_previous.setMinimumSize(QtCore.QSize(45, 25))
         self.bn_home_page_previous.setMaximumSize(QtCore.QSize(69, 25))
         font = QtGui.QFont()
         font.setFamily("Segoe UI")
-        font.setPointSize(12)
+        font.setPointSize(10)
         self.bn_home_page_previous.setFont(font)
         self.bn_home_page_previous.setStyleSheet("QPushButton {\n"
 "    border: 2px solid rgb(51,51,51);\n"
@@ -512,7 +585,7 @@ class Ui_MainWindow(object):
         self.bn_home_page_next.setMaximumSize(QtCore.QSize(69, 25))
         font = QtGui.QFont()
         font.setFamily("Segoe UI")
-        font.setPointSize(12)
+        font.setPointSize(10)
         self.bn_home_page_next.setFont(font)
         self.bn_home_page_next.setStyleSheet("QPushButton {\n"
 "    border: 2px solid rgb(51,51,51);\n"
@@ -538,8 +611,8 @@ class Ui_MainWindow(object):
 "}")
         self.bn_home_page_next.setObjectName("bn_home_page_next")
         self.horizontalLayout_9.addWidget(self.bn_home_page_next)
-        spacerItem3 = QtWidgets.QSpacerItem(41, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.horizontalLayout_9.addItem(spacerItem3)
+        spacerItem4 = QtWidgets.QSpacerItem(41, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.horizontalLayout_9.addItem(spacerItem4)
         self.verticalLayout_5.addWidget(self.frame_5)
         self.frame_4 = QtWidgets.QFrame(self.frame_home_main)
         self.frame_4.setFrameShape(QtWidgets.QFrame.StyledPanel)
@@ -561,7 +634,7 @@ class Ui_MainWindow(object):
         self.label_home_line08 = QtWidgets.QLabel(self.frame_android_field_2)
         font = QtGui.QFont()
         font.setFamily("Segoe UI")
-        font.setPointSize(14)
+        font.setPointSize(12)
         self.label_home_line08.setFont(font)
         self.label_home_line08.setStyleSheet("color:rgb(255,255,255);")
         self.label_home_line08.setObjectName("label_home_line08")
@@ -572,7 +645,7 @@ class Ui_MainWindow(object):
         self.line_home_value03.setMaximumSize(QtCore.QSize(16777215, 25))
         font = QtGui.QFont()
         font.setFamily("Segoe UI")
-        font.setPointSize(12)
+        font.setPointSize(10)
         self.line_home_value03.setFont(font)
         self.line_home_value03.setStyleSheet("QLineEdit {\n"
 "    color:rgb(255,255,255);\n"
@@ -587,12 +660,13 @@ class Ui_MainWindow(object):
 "    border-radius:4px;\n"
 "    background:rgb(112,112,112);\n"
 "}")
+        self.line_home_value03.setText("")
         self.line_home_value03.setObjectName("line_home_value03")
         self.gridLayout_7.addWidget(self.line_home_value03, 2, 1, 1, 1)
         self.label_home_line05 = QtWidgets.QLabel(self.frame_android_field_2)
         font = QtGui.QFont()
         font.setFamily("Segoe UI")
-        font.setPointSize(14)
+        font.setPointSize(12)
         self.label_home_line05.setFont(font)
         self.label_home_line05.setStyleSheet("color:rgb(255,255,255);")
         self.label_home_line05.setObjectName("label_home_line05")
@@ -600,7 +674,7 @@ class Ui_MainWindow(object):
         self.label_home_line10 = QtWidgets.QLabel(self.frame_android_field_2)
         font = QtGui.QFont()
         font.setFamily("Segoe UI")
-        font.setPointSize(14)
+        font.setPointSize(12)
         self.label_home_line10.setFont(font)
         self.label_home_line10.setStyleSheet("color:rgb(255,255,255);")
         self.label_home_line10.setObjectName("label_home_line10")
@@ -608,7 +682,7 @@ class Ui_MainWindow(object):
         self.label_home_line02 = QtWidgets.QLabel(self.frame_android_field_2)
         font = QtGui.QFont()
         font.setFamily("Segoe UI")
-        font.setPointSize(14)
+        font.setPointSize(12)
         self.label_home_line02.setFont(font)
         self.label_home_line02.setStyleSheet("color:rgb(255,255,255);")
         self.label_home_line02.setObjectName("label_home_line02")
@@ -616,7 +690,7 @@ class Ui_MainWindow(object):
         self.label_home_line06 = QtWidgets.QLabel(self.frame_android_field_2)
         font = QtGui.QFont()
         font.setFamily("Segoe UI")
-        font.setPointSize(14)
+        font.setPointSize(12)
         self.label_home_line06.setFont(font)
         self.label_home_line06.setStyleSheet("color:rgb(255,255,255);")
         self.label_home_line06.setObjectName("label_home_line06")
@@ -624,7 +698,7 @@ class Ui_MainWindow(object):
         self.label_home_line07 = QtWidgets.QLabel(self.frame_android_field_2)
         font = QtGui.QFont()
         font.setFamily("Segoe UI")
-        font.setPointSize(14)
+        font.setPointSize(12)
         self.label_home_line07.setFont(font)
         self.label_home_line07.setStyleSheet("color:rgb(255,255,255);")
         self.label_home_line07.setObjectName("label_home_line07")
@@ -635,7 +709,7 @@ class Ui_MainWindow(object):
         self.line_home_value09.setMaximumSize(QtCore.QSize(16777215, 25))
         font = QtGui.QFont()
         font.setFamily("Segoe UI")
-        font.setPointSize(12)
+        font.setPointSize(10)
         self.line_home_value09.setFont(font)
         self.line_home_value09.setStyleSheet("QLineEdit {\n"
 "    color:rgb(255,255,255);\n"
@@ -650,12 +724,13 @@ class Ui_MainWindow(object):
 "    border-radius:4px;\n"
 "    background:rgb(112,112,112);\n"
 "}")
+        self.line_home_value09.setText("")
         self.line_home_value09.setObjectName("line_home_value09")
         self.gridLayout_7.addWidget(self.line_home_value09, 8, 1, 1, 1)
         self.label_home_line03 = QtWidgets.QLabel(self.frame_android_field_2)
         font = QtGui.QFont()
         font.setFamily("Segoe UI")
-        font.setPointSize(14)
+        font.setPointSize(12)
         self.label_home_line03.setFont(font)
         self.label_home_line03.setStyleSheet("color:rgb(255,255,255);")
         self.label_home_line03.setObjectName("label_home_line03")
@@ -666,7 +741,7 @@ class Ui_MainWindow(object):
         self.line_home_value02.setMaximumSize(QtCore.QSize(16777215, 25))
         font = QtGui.QFont()
         font.setFamily("Segoe UI")
-        font.setPointSize(12)
+        font.setPointSize(10)
         self.line_home_value02.setFont(font)
         self.line_home_value02.setStyleSheet("QLineEdit {\n"
 "    color:rgb(255,255,255);\n"
@@ -681,6 +756,7 @@ class Ui_MainWindow(object):
 "    border-radius:4px;\n"
 "    background:rgb(112,112,112);\n"
 "}")
+        self.line_home_value02.setText("")
         self.line_home_value02.setObjectName("line_home_value02")
         self.gridLayout_7.addWidget(self.line_home_value02, 1, 1, 1, 1)
         self.frame_6 = QtWidgets.QFrame(self.frame_android_field_2)
@@ -701,7 +777,7 @@ class Ui_MainWindow(object):
         self.bn_android_contact_edit_3.setMaximumSize(QtCore.QSize(69, 25))
         font = QtGui.QFont()
         font.setFamily("Segoe UI")
-        font.setPointSize(12)
+        font.setPointSize(11)
         self.bn_android_contact_edit_3.setFont(font)
         self.bn_android_contact_edit_3.setStyleSheet("QPushButton {\n"
 "    border: 2px solid rgb(51,51,51);\n"
@@ -730,7 +806,7 @@ class Ui_MainWindow(object):
         self.bn_android_contact_share_3.setMaximumSize(QtCore.QSize(69, 25))
         font = QtGui.QFont()
         font.setFamily("Segoe UI")
-        font.setPointSize(12)
+        font.setPointSize(11)
         self.bn_android_contact_share_3.setFont(font)
         self.bn_android_contact_share_3.setStyleSheet("QPushButton {\n"
 "    border: 2px solid rgb(51,51,51);\n"
@@ -759,7 +835,7 @@ class Ui_MainWindow(object):
         self.bn_android_contact_delete_3.setMaximumSize(QtCore.QSize(69, 25))
         font = QtGui.QFont()
         font.setFamily("Segoe UI")
-        font.setPointSize(12)
+        font.setPointSize(11)
         self.bn_android_contact_delete_3.setFont(font)
         self.bn_android_contact_delete_3.setStyleSheet("QPushButton {\n"
 "    border: 2px solid rgb(51,51,51);\n"
@@ -789,7 +865,7 @@ class Ui_MainWindow(object):
         self.bn_android_contact_save_3.setMaximumSize(QtCore.QSize(69, 25))
         font = QtGui.QFont()
         font.setFamily("Segoe UI")
-        font.setPointSize(12)
+        font.setPointSize(11)
         self.bn_android_contact_save_3.setFont(font)
         self.bn_android_contact_save_3.setStyleSheet("QPushButton {\n"
 "    border: 2px solid rgb(51,51,51);\n"
@@ -813,13 +889,13 @@ class Ui_MainWindow(object):
 "}")
         self.bn_android_contact_save_3.setObjectName("bn_android_contact_save_3")
         self.horizontalLayout_8.addWidget(self.bn_android_contact_save_3)
-        spacerItem4 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.horizontalLayout_8.addItem(spacerItem4)
+        spacerItem5 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.horizontalLayout_8.addItem(spacerItem5)
         self.gridLayout_7.addWidget(self.frame_6, 10, 0, 1, 2)
         self.label_home_line09 = QtWidgets.QLabel(self.frame_android_field_2)
         font = QtGui.QFont()
         font.setFamily("Segoe UI")
-        font.setPointSize(14)
+        font.setPointSize(12)
         self.label_home_line09.setFont(font)
         self.label_home_line09.setStyleSheet("color:rgb(255,255,255);")
         self.label_home_line09.setObjectName("label_home_line09")
@@ -830,7 +906,7 @@ class Ui_MainWindow(object):
         self.line_home_value05.setMaximumSize(QtCore.QSize(16777215, 25))
         font = QtGui.QFont()
         font.setFamily("Segoe UI")
-        font.setPointSize(12)
+        font.setPointSize(10)
         self.line_home_value05.setFont(font)
         self.line_home_value05.setStyleSheet("QLineEdit {\n"
 "    color:rgb(255,255,255);\n"
@@ -853,7 +929,7 @@ class Ui_MainWindow(object):
         self.line_home_value06.setMaximumSize(QtCore.QSize(16777215, 25))
         font = QtGui.QFont()
         font.setFamily("Segoe UI")
-        font.setPointSize(12)
+        font.setPointSize(10)
         self.line_home_value06.setFont(font)
         self.line_home_value06.setStyleSheet("QLineEdit {\n"
 "    color:rgb(255,255,255);\n"
@@ -868,6 +944,7 @@ class Ui_MainWindow(object):
 "    border-radius:4px;\n"
 "    background:rgb(112,112,112);\n"
 "}")
+        self.line_home_value06.setText("")
         self.line_home_value06.setObjectName("line_home_value06")
         self.gridLayout_7.addWidget(self.line_home_value06, 5, 1, 1, 1)
         self.line_home_value01 = QtWidgets.QLineEdit(self.frame_android_field_2)
@@ -876,7 +953,7 @@ class Ui_MainWindow(object):
         self.line_home_value01.setMaximumSize(QtCore.QSize(16777215, 25))
         font = QtGui.QFont()
         font.setFamily("Segoe UI")
-        font.setPointSize(12)
+        font.setPointSize(10)
         self.line_home_value01.setFont(font)
         self.line_home_value01.setStyleSheet("QLineEdit {\n"
 "    color:rgb(255,255,255);\n"
@@ -891,6 +968,7 @@ class Ui_MainWindow(object):
 "    border-radius:4px;\n"
 "    background:rgb(112,112,112);\n"
 "}")
+        self.line_home_value01.setText("")
         self.line_home_value01.setObjectName("line_home_value01")
         self.gridLayout_7.addWidget(self.line_home_value01, 0, 1, 1, 1)
         self.line_home_value04 = QtWidgets.QLineEdit(self.frame_android_field_2)
@@ -899,7 +977,7 @@ class Ui_MainWindow(object):
         self.line_home_value04.setMaximumSize(QtCore.QSize(16777215, 25))
         font = QtGui.QFont()
         font.setFamily("Segoe UI")
-        font.setPointSize(12)
+        font.setPointSize(10)
         self.line_home_value04.setFont(font)
         self.line_home_value04.setStyleSheet("QLineEdit {\n"
 "    color:rgb(255,255,255);\n"
@@ -914,6 +992,7 @@ class Ui_MainWindow(object):
 "    border-radius:4px;\n"
 "    background:rgb(112,112,112);\n"
 "}")
+        self.line_home_value04.setText("")
         self.line_home_value04.setObjectName("line_home_value04")
         self.gridLayout_7.addWidget(self.line_home_value04, 3, 1, 1, 1)
         self.line_home_value07 = QtWidgets.QLineEdit(self.frame_android_field_2)
@@ -922,7 +1001,7 @@ class Ui_MainWindow(object):
         self.line_home_value07.setMaximumSize(QtCore.QSize(16777215, 25))
         font = QtGui.QFont()
         font.setFamily("Segoe UI")
-        font.setPointSize(12)
+        font.setPointSize(10)
         self.line_home_value07.setFont(font)
         self.line_home_value07.setStyleSheet("QLineEdit {\n"
 "    color:rgb(255,255,255);\n"
@@ -937,6 +1016,7 @@ class Ui_MainWindow(object):
 "    border-radius:4px;\n"
 "    background:rgb(112,112,112);\n"
 "}")
+        self.line_home_value07.setText("")
         self.line_home_value07.setObjectName("line_home_value07")
         self.gridLayout_7.addWidget(self.line_home_value07, 6, 1, 1, 1)
         self.line_home_value10 = QtWidgets.QLineEdit(self.frame_android_field_2)
@@ -945,7 +1025,7 @@ class Ui_MainWindow(object):
         self.line_home_value10.setMaximumSize(QtCore.QSize(16777215, 25))
         font = QtGui.QFont()
         font.setFamily("Segoe UI")
-        font.setPointSize(12)
+        font.setPointSize(10)
         self.line_home_value10.setFont(font)
         self.line_home_value10.setStyleSheet("QLineEdit {\n"
 "    color:rgb(255,255,255);\n"
@@ -965,7 +1045,7 @@ class Ui_MainWindow(object):
         self.label_home_line04 = QtWidgets.QLabel(self.frame_android_field_2)
         font = QtGui.QFont()
         font.setFamily("Segoe UI")
-        font.setPointSize(14)
+        font.setPointSize(12)
         self.label_home_line04.setFont(font)
         self.label_home_line04.setStyleSheet("color:rgb(255,255,255);")
         self.label_home_line04.setObjectName("label_home_line04")
@@ -976,7 +1056,7 @@ class Ui_MainWindow(object):
         self.line_home_value08.setMaximumSize(QtCore.QSize(16777215, 25))
         font = QtGui.QFont()
         font.setFamily("Segoe UI")
-        font.setPointSize(12)
+        font.setPointSize(10)
         self.line_home_value08.setFont(font)
         self.line_home_value08.setStyleSheet("QLineEdit {\n"
 "    color:rgb(255,255,255);\n"
@@ -991,316 +1071,27 @@ class Ui_MainWindow(object):
 "    border-radius:4px;\n"
 "    background:rgb(112,112,112);\n"
 "}")
+        self.line_home_value08.setText("")
         self.line_home_value08.setObjectName("line_home_value08")
         self.gridLayout_7.addWidget(self.line_home_value08, 7, 1, 1, 1)
         self.label_home_line01 = QtWidgets.QLabel(self.frame_android_field_2)
         font = QtGui.QFont()
         font.setFamily("Segoe UI")
-        font.setPointSize(14)
+        font.setPointSize(12)
         self.label_home_line01.setFont(font)
         self.label_home_line01.setStyleSheet("color:rgb(255,255,255);")
         self.label_home_line01.setObjectName("label_home_line01")
         self.gridLayout_7.addWidget(self.label_home_line01, 0, 0, 1, 1)
         self.gridLayout_8.addWidget(self.frame_android_field_2, 0, 0, 1, 1)
-        spacerItem5 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
-        self.gridLayout_8.addItem(spacerItem5, 1, 0, 1, 1)
+        spacerItem6 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        self.gridLayout_8.addItem(spacerItem6, 1, 0, 1, 1)
         self.verticalLayout_5.addWidget(self.frame_4)
         self.horizontalLayout_19.addWidget(self.frame_home_main)
-        self.vert_divide = QtWidgets.QFrame(self.page_home)
+        self.vert_divide = QtWidgets.QFrame(self.page_bug)
         self.vert_divide.setFrameShape(QtWidgets.QFrame.VLine)
         self.vert_divide.setFrameShadow(QtWidgets.QFrame.Sunken)
         self.vert_divide.setObjectName("vert_divide")
         self.horizontalLayout_19.addWidget(self.vert_divide)
-        self.stackedWidget.addWidget(self.page_home)
-        self.page_about_home = QtWidgets.QWidget()
-        self.page_about_home.setStyleSheet("background:rgb(91,90,90);")
-        self.page_about_home.setObjectName("page_about_home")
-        self.verticalLayout_13 = QtWidgets.QVBoxLayout(self.page_about_home)
-        self.verticalLayout_13.setContentsMargins(5, 5, 5, 5)
-        self.verticalLayout_13.setSpacing(5)
-        self.verticalLayout_13.setObjectName("verticalLayout_13")
-        self.lab_about_home = QtWidgets.QLabel(self.page_about_home)
-        self.lab_about_home.setMinimumSize(QtCore.QSize(0, 55))
-        self.lab_about_home.setMaximumSize(QtCore.QSize(16777215, 55))
-        font = QtGui.QFont()
-        font.setFamily("Segoe UI")
-        font.setPointSize(24)
-        self.lab_about_home.setFont(font)
-        self.lab_about_home.setStyleSheet("color:rgb(255,255,255);")
-        self.lab_about_home.setObjectName("lab_about_home")
-        self.verticalLayout_13.addWidget(self.lab_about_home)
-        self.frame_about_home = QtWidgets.QFrame(self.page_about_home)
-        self.frame_about_home.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frame_about_home.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frame_about_home.setObjectName("frame_about_home")
-        self.horizontalLayout_28 = QtWidgets.QHBoxLayout(self.frame_about_home)
-        self.horizontalLayout_28.setContentsMargins(5, 5, 0, 5)
-        self.horizontalLayout_28.setSpacing(0)
-        self.horizontalLayout_28.setObjectName("horizontalLayout_28")
-        self.text_about_home = QtWidgets.QTextEdit(self.frame_about_home)
-        self.text_about_home.setEnabled(True)
-        font = QtGui.QFont()
-        font.setFamily("Segoe UI")
-        font.setPointSize(10)
-        self.text_about_home.setFont(font)
-        self.text_about_home.setStyleSheet("color:rgb(255,255,255);")
-        self.text_about_home.setFrameShape(QtWidgets.QFrame.NoFrame)
-        self.text_about_home.setFrameShadow(QtWidgets.QFrame.Plain)
-        self.text_about_home.setReadOnly(True)
-        self.text_about_home.setTextInteractionFlags(QtCore.Qt.TextBrowserInteraction)
-        self.text_about_home.setObjectName("text_about_home")
-        self.horizontalLayout_28.addWidget(self.text_about_home)
-        self.vsb_about_home = QtWidgets.QScrollBar(self.frame_about_home)
-        self.vsb_about_home.setStyleSheet("QScrollBar:vertical {\n"
-"    background:rgb(51,51,51);\n"
-"    width:20px;\n"
-"    margin: 0px 0px 0px 0px;\n"
-"}\n"
-"QScrollBar::handle:vertical {\n"
-"    background:rgb(0,143,170);\n"
-"}\n"
-"QScrollBar::add-page:vertical {\n"
-"     background:rgb(51,51,51);\n"
-"}\n"
-"QScrollBar::sub-page:vertical {\n"
-"     background:rgb(51,51,51);\n"
-"}")
-        self.vsb_about_home.setOrientation(QtCore.Qt.Vertical)
-        self.vsb_about_home.setObjectName("vsb_about_home")
-        self.horizontalLayout_28.addWidget(self.vsb_about_home)
-        self.verticalLayout_13.addWidget(self.frame_about_home)
-        self.stackedWidget.addWidget(self.page_about_home)
-        self.page_about_cloud = QtWidgets.QWidget()
-        self.page_about_cloud.setStyleSheet("background:rgb(91,90,90);")
-        self.page_about_cloud.setObjectName("page_about_cloud")
-        self.horizontalLayout_29 = QtWidgets.QHBoxLayout(self.page_about_cloud)
-        self.horizontalLayout_29.setObjectName("horizontalLayout_29")
-        self.label_10 = QtWidgets.QLabel(self.page_about_cloud)
-        font = QtGui.QFont()
-        font.setFamily("Segoe UI")
-        font.setPointSize(30)
-        self.label_10.setFont(font)
-        self.label_10.setStyleSheet("color:rgb(255,255,255);")
-        self.label_10.setAlignment(QtCore.Qt.AlignCenter)
-        self.label_10.setObjectName("label_10")
-        self.horizontalLayout_29.addWidget(self.label_10)
-        self.stackedWidget.addWidget(self.page_about_cloud)
-        self.page_about_android = QtWidgets.QWidget()
-        self.page_about_android.setStyleSheet("background:rgb(91,90,90);")
-        self.page_about_android.setObjectName("page_about_android")
-        self.stackedWidget.addWidget(self.page_about_android)
-        self.page_about_bug = QtWidgets.QWidget()
-        self.page_about_bug.setStyleSheet("background:rgb(91,90,90);")
-        self.page_about_bug.setObjectName("page_about_bug")
-        self.stackedWidget.addWidget(self.page_about_bug)
-        self.page_bug = QtWidgets.QWidget()
-        self.page_bug.setStyleSheet("background:rgb(91,90,90);")
-        self.page_bug.setObjectName("page_bug")
-        self.verticalLayout_7 = QtWidgets.QVBoxLayout(self.page_bug)
-        self.verticalLayout_7.setContentsMargins(5, 5, 5, 5)
-        self.verticalLayout_7.setSpacing(5)
-        self.verticalLayout_7.setObjectName("verticalLayout_7")
-        self.lab_Bug = QtWidgets.QLabel(self.page_bug)
-        self.lab_Bug.setMinimumSize(QtCore.QSize(0, 55))
-        self.lab_Bug.setMaximumSize(QtCore.QSize(16777215, 55))
-        font = QtGui.QFont()
-        font.setFamily("Segoe UI Semilight")
-        font.setPointSize(24)
-        self.lab_Bug.setFont(font)
-        self.lab_Bug.setStyleSheet("color:rgb(255,255,255);")
-        self.lab_Bug.setObjectName("lab_Bug")
-        self.verticalLayout_7.addWidget(self.lab_Bug)
-        self.frame_bug_main = QtWidgets.QFrame(self.page_bug)
-        self.frame_bug_main.setMinimumSize(QtCore.QSize(0, 200))
-        self.frame_bug_main.setMaximumSize(QtCore.QSize(16777215, 200))
-        self.frame_bug_main.setFrameShape(QtWidgets.QFrame.NoFrame)
-        self.frame_bug_main.setFrameShadow(QtWidgets.QFrame.Plain)
-        self.frame_bug_main.setObjectName("frame_bug_main")
-        self.gridLayout = QtWidgets.QGridLayout(self.frame_bug_main)
-        self.gridLayout.setObjectName("gridLayout")
-        spacerItem6 = QtWidgets.QSpacerItem(421, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.gridLayout.addItem(spacerItem6, 5, 7, 1, 1)
-        self.lab_bullet = QtWidgets.QLabel(self.frame_bug_main)
-        self.lab_bullet.setMaximumSize(QtCore.QSize(5, 16777215))
-        self.lab_bullet.setText("")
-        self.lab_bullet.setPixmap(QtGui.QPixmap("icons/1x/bulletAsset 54.png"))
-        self.lab_bullet.setAlignment(QtCore.Qt.AlignCenter)
-        self.lab_bullet.setObjectName("lab_bullet")
-        self.gridLayout.addWidget(self.lab_bullet, 0, 0, 1, 1)
-        self.lab_bullet3 = QtWidgets.QLabel(self.frame_bug_main)
-        self.lab_bullet3.setMaximumSize(QtCore.QSize(5, 16777215))
-        self.lab_bullet3.setText("")
-        self.lab_bullet3.setPixmap(QtGui.QPixmap("icons/1x/bulletAsset 54.png"))
-        self.lab_bullet3.setObjectName("lab_bullet3")
-        self.gridLayout.addWidget(self.lab_bullet3, 2, 0, 1, 1)
-        self.lab_bug2 = QtWidgets.QLabel(self.frame_bug_main)
-        font = QtGui.QFont()
-        font.setFamily("Segoe UI")
-        font.setPointSize(14)
-        self.lab_bug2.setFont(font)
-        self.lab_bug2.setStyleSheet("color:rgb(255,255,255);")
-        self.lab_bug2.setObjectName("lab_bug2")
-        self.gridLayout.addWidget(self.lab_bug2, 1, 1, 1, 1)
-        self.lab_bug3 = QtWidgets.QLabel(self.frame_bug_main)
-        font = QtGui.QFont()
-        font.setFamily("Segoe UI")
-        font.setPointSize(14)
-        self.lab_bug3.setFont(font)
-        self.lab_bug3.setObjectName("lab_bug3")
-        self.gridLayout.addWidget(self.lab_bug3, 2, 1, 1, 1)
-        self.comboBox_bug = QtWidgets.QComboBox(self.frame_bug_main)
-        self.comboBox_bug.setMaximumSize(QtCore.QSize(16777215, 25))
-        font = QtGui.QFont()
-        font.setFamily("Segoe UI")
-        font.setPointSize(10)
-        self.comboBox_bug.setFont(font)
-        self.comboBox_bug.setStyleSheet("QComboBox {\n"
-"    border: 2px solid rgb(51,51,51);\n"
-"    border-radius: 5px;    \n"
-"    color:rgb(255,255,255);\n"
-"    background-color: rgb(51,51,51);\n"
-"}\n"
-"\n"
-"QComboBox:hover {\n"
-"    border: 2px solid rgb(0,143,170);\n"
-"    border-radius: 5px;    \n"
-"    color:rgb(255,255,255);\n"
-"    background-color: rgb(0,143,170);\n"
-"}\n"
-"\n"
-"QComboBox:!editable, QComboBox::drop-down:editable {\n"
-"    background: rgb(51,51,51);\n"
-"}\n"
-"\n"
-"QComboBox:!editable:on, QComboBox::drop-down:editable:on {\n"
-"    background:rgb(51,51,51);\n"
-"}\n"
-"\n"
-"QComboBox:on { /* shift the text when the popup opens */\n"
-"    padding-top: 3px;\n"
-"    padding-left: 4px;\n"
-"}\n"
-"\n"
-"QComboBox::drop-down {\n"
-"    subcontrol-origin: padding;\n"
-"    subcontrol-position: top right;\n"
-"    width: 15px;\n"
-"\n"
-"    border-left-width: 1px;\n"
-"    border-left-color: darkgray;\n"
-"    border-left-style: solid; /* just a single line */\n"
-"    border-top-right-radius: 5px; /* same radius as the QComboBox */\n"
-"    border-bottom-right-radius: 5px;\n"
-"}\n"
-"\n"
-"QComboBox::down-arrow {\n"
-"    image: url(icons/1x/arrow.png);\n"
-"}\n"
-"\n"
-"QComboBox::down-arrow:on { /* shift the arrow when popup is open */\n"
-"    top: 1px;\n"
-"    left: 1px;\n"
-"}\n"
-"\n"
-"QComboBox::drop-down {\n"
-"    background:rgb(51,51,51);\n"
-"}\n"
-"\n"
-"")
-        self.comboBox_bug.setSizeAdjustPolicy(QtWidgets.QComboBox.AdjustToContents)
-        self.comboBox_bug.setFrame(False)
-        self.comboBox_bug.setModelColumn(0)
-        self.comboBox_bug.setObjectName("comboBox_bug")
-        self.comboBox_bug.addItem("")
-        self.comboBox_bug.addItem("")
-        self.comboBox_bug.addItem("")
-        self.comboBox_bug.addItem("")
-        self.gridLayout.addWidget(self.comboBox_bug, 3, 8, 1, 1)
-        self.lab_bug1 = QtWidgets.QLabel(self.frame_bug_main)
-        self.lab_bug1.setMinimumSize(QtCore.QSize(0, 0))
-        self.lab_bug1.setMaximumSize(QtCore.QSize(16777215, 16777215))
-        font = QtGui.QFont()
-        font.setFamily("Segoe UI")
-        font.setPointSize(14)
-        self.lab_bug1.setFont(font)
-        self.lab_bug1.setStyleSheet("color:rgb(255,255,255);")
-        self.lab_bug1.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignTop)
-        self.lab_bug1.setObjectName("lab_bug1")
-        self.gridLayout.addWidget(self.lab_bug1, 0, 1, 1, 1)
-        self.lab_bullet2 = QtWidgets.QLabel(self.frame_bug_main)
-        self.lab_bullet2.setMaximumSize(QtCore.QSize(5, 16777215))
-        self.lab_bullet2.setText("")
-        self.lab_bullet2.setPixmap(QtGui.QPixmap("icons/1x/bulletAsset 54.png"))
-        self.lab_bullet2.setObjectName("lab_bullet2")
-        self.gridLayout.addWidget(self.lab_bullet2, 1, 0, 1, 1)
-        self.bn_bug_start = QtWidgets.QPushButton(self.frame_bug_main)
-        self.bn_bug_start.setMinimumSize(QtCore.QSize(69, 25))
-        self.bn_bug_start.setMaximumSize(QtCore.QSize(69, 25))
-        font = QtGui.QFont()
-        font.setFamily("Segoe UI")
-        font.setPointSize(12)
-        self.bn_bug_start.setFont(font)
-        self.bn_bug_start.setStyleSheet("QPushButton {\n"
-"    border: 2px solid rgb(51,51,51);\n"
-"    border-radius: 5px;    \n"
-"    color:rgb(255,255,255);\n"
-"    background-color: rgb(51,51,51);\n"
-"}\n"
-"QPushButton:hover {\n"
-"    border: 2px solid rgb(0,143,150);\n"
-"    background-color: rgb(0,143,150);\n"
-"}\n"
-"QPushButton:pressed {    \n"
-"    border: 2px solid rgb(0,143,150);\n"
-"    background-color: rgb(51,51,51);\n"
-"}\n"
-"\n"
-"QPushButton:disabled {    \n"
-"    border-radius: 5px;    \n"
-"    border: 2px solid rgb(112,112,112);\n"
-"    background-color: rgb(112,112,112);\n"
-"}")
-        self.bn_bug_start.setCheckable(False)
-        self.bn_bug_start.setFlat(True)
-        self.bn_bug_start.setObjectName("bn_bug_start")
-        self.gridLayout.addWidget(self.bn_bug_start, 3, 9, 1, 1)
-        self.progressBar_bug = QtWidgets.QProgressBar(self.frame_bug_main)
-        self.progressBar_bug.setEnabled(True)
-        self.progressBar_bug.setStyleSheet("QProgressBar\n"
-"{\n"
-"    color:rgb(255,255,255);\n"
-"    background-color :rgb(51,51,51);\n"
-"    border : 2px;\n"
-"    border-radius:4px;\n"
-"}\n"
-"\n"
-"QProgressBar::chunk{\n"
-"    border : 2px;\n"
-"    border-radius:4px;\n"
-"    background-color:rgb(0,143,170);\n"
-"}")
-        self.progressBar_bug.setProperty("value", 0)
-        self.progressBar_bug.setAlignment(QtCore.Qt.AlignCenter)
-        self.progressBar_bug.setTextVisible(True)
-        self.progressBar_bug.setOrientation(QtCore.Qt.Horizontal)
-        self.progressBar_bug.setInvertedAppearance(False)
-        self.progressBar_bug.setTextDirection(QtWidgets.QProgressBar.TopToBottom)
-        self.progressBar_bug.setObjectName("progressBar_bug")
-        self.gridLayout.addWidget(self.progressBar_bug, 4, 7, 1, 3)
-        self.lab_bug_action = QtWidgets.QLabel(self.frame_bug_main)
-        self.lab_bug_action.setMinimumSize(QtCore.QSize(0, 20))
-        self.lab_bug_action.setMaximumSize(QtCore.QSize(16777215, 30))
-        font = QtGui.QFont()
-        font.setFamily("Segoe UI")
-        font.setPointSize(16)
-        self.lab_bug_action.setFont(font)
-        self.lab_bug_action.setStyleSheet("color:rgb(255,255,255);")
-        self.lab_bug_action.setAlignment(QtCore.Qt.AlignRight|QtCore.Qt.AlignTrailing|QtCore.Qt.AlignVCenter)
-        self.lab_bug_action.setObjectName("lab_bug_action")
-        self.gridLayout.addWidget(self.lab_bug_action, 3, 7, 1, 1)
-        self.verticalLayout_7.addWidget(self.frame_bug_main)
-        spacerItem7 = QtWidgets.QSpacerItem(20, 197, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
-        self.verticalLayout_7.addItem(spacerItem7)
         self.stackedWidget.addWidget(self.page_bug)
         self.page_cloud = QtWidgets.QWidget()
         self.page_cloud.setStyleSheet("background:rgb(91,90,90);")
@@ -1431,10 +1222,10 @@ class Ui_MainWindow(object):
 "}")
         self.line_cloud_adress.setObjectName("line_cloud_adress")
         self.gridLayout_2.addWidget(self.line_cloud_adress, 1, 1, 1, 3)
+        spacerItem7 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.gridLayout_2.addItem(spacerItem7, 1, 4, 1, 1)
         spacerItem8 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.gridLayout_2.addItem(spacerItem8, 1, 4, 1, 1)
-        spacerItem9 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.gridLayout_2.addItem(spacerItem9, 3, 0, 1, 2)
+        self.gridLayout_2.addItem(spacerItem8, 3, 0, 1, 2)
         self.bn_cloud_clear = QtWidgets.QPushButton(self.frame_2)
         self.bn_cloud_clear.setEnabled(True)
         self.bn_cloud_clear.setMinimumSize(QtCore.QSize(69, 25))
@@ -1495,8 +1286,8 @@ class Ui_MainWindow(object):
         self.bn_cloud_connect.setObjectName("bn_cloud_connect")
         self.gridLayout_2.addWidget(self.bn_cloud_connect, 3, 3, 1, 1)
         self.verticalLayout_8.addWidget(self.frame_2)
-        spacerItem10 = QtWidgets.QSpacerItem(20, 162, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
-        self.verticalLayout_8.addItem(spacerItem10)
+        spacerItem9 = QtWidgets.QSpacerItem(20, 162, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        self.verticalLayout_8.addItem(spacerItem9)
         self.stackedWidget.addWidget(self.page_cloud)
         self.page_android = QtWidgets.QWidget()
         self.page_android.setStyleSheet("background:rgb(91,90,90);")
@@ -1642,8 +1433,8 @@ class Ui_MainWindow(object):
         self.bn_android_world.setObjectName("bn_android_world")
         self.horizontalLayout_24.addWidget(self.bn_android_world)
         self.horizontalLayout_20.addWidget(self.frame_android_world)
-        spacerItem11 = QtWidgets.QSpacerItem(75, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.horizontalLayout_20.addItem(spacerItem11)
+        spacerItem10 = QtWidgets.QSpacerItem(75, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.horizontalLayout_20.addItem(spacerItem10)
         self.verticalLayout_9.addWidget(self.frame_android_menu)
         self.stackedWidget_android = QtWidgets.QStackedWidget(self.page_android)
         self.stackedWidget_android.setStyleSheet("background:rgb(91,90,90);")
@@ -1680,8 +1471,8 @@ class Ui_MainWindow(object):
         self.lab_person_icon.setPixmap(QtGui.QPixmap("icons/1x/peopleAsset 62.png"))
         self.lab_person_icon.setObjectName("lab_person_icon")
         self.gridLayout_3.addWidget(self.lab_person_icon, 0, 0, 1, 1)
-        spacerItem12 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
-        self.gridLayout_3.addItem(spacerItem12, 1, 0, 1, 1)
+        spacerItem11 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        self.gridLayout_3.addItem(spacerItem11, 1, 0, 1, 1)
         self.frame_android_field = QtWidgets.QFrame(self.frame_android_bottom)
         self.frame_android_field.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.frame_android_field.setFrameShadow(QtWidgets.QFrame.Plain)
@@ -1845,12 +1636,12 @@ class Ui_MainWindow(object):
 "}")
         self.line_android_email.setObjectName("line_android_email")
         self.gridLayout_4.addWidget(self.line_android_email, 5, 3, 1, 1)
+        spacerItem12 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.gridLayout_4.addItem(spacerItem12, 8, 8, 1, 1)
         spacerItem13 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.gridLayout_4.addItem(spacerItem13, 8, 8, 1, 1)
-        spacerItem14 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.gridLayout_4.addItem(spacerItem14, 4, 8, 1, 1)
-        spacerItem15 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
-        self.gridLayout_4.addItem(spacerItem15, 9, 3, 1, 1)
+        self.gridLayout_4.addItem(spacerItem13, 4, 8, 1, 1)
+        spacerItem14 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        self.gridLayout_4.addItem(spacerItem14, 9, 3, 1, 1)
         self.frame_3 = QtWidgets.QFrame(self.frame_android_field)
         self.frame_3.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.frame_3.setFrameShadow(QtWidgets.QFrame.Plain)
@@ -2046,8 +1837,8 @@ class Ui_MainWindow(object):
         self.gridLayout_5.setContentsMargins(5, 5, 5, 5)
         self.gridLayout_5.setSpacing(5)
         self.gridLayout_5.setObjectName("gridLayout_5")
-        spacerItem16 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.gridLayout_5.addItem(spacerItem16, 0, 5, 1, 1)
+        spacerItem15 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.gridLayout_5.addItem(spacerItem15, 0, 5, 1, 1)
         self.groupBox_clean = QtWidgets.QGroupBox(self.page_android_clean)
         self.groupBox_clean.setMinimumSize(QtCore.QSize(250, 300))
         self.groupBox_clean.setMaximumSize(QtCore.QSize(250, 300))
@@ -2330,8 +2121,8 @@ class Ui_MainWindow(object):
         self.lab_clean.setText("")
         self.lab_clean.setObjectName("lab_clean")
         self.gridLayout_5.addWidget(self.lab_clean, 0, 1, 2, 2)
-        spacerItem17 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
-        self.gridLayout_5.addItem(spacerItem17, 2, 0, 2, 1)
+        spacerItem16 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        self.gridLayout_5.addItem(spacerItem16, 2, 0, 2, 1)
         self.groupBox = QtWidgets.QGroupBox(self.page_android_clean)
         self.groupBox.setMinimumSize(QtCore.QSize(250, 300))
         self.groupBox.setMaximumSize(QtCore.QSize(250, 300))
@@ -2417,6 +2208,87 @@ class Ui_MainWindow(object):
         self.stackedWidget_android.addWidget(self.page_android_world)
         self.verticalLayout_9.addWidget(self.stackedWidget_android)
         self.stackedWidget.addWidget(self.page_android)
+        self.page_about_home = QtWidgets.QWidget()
+        self.page_about_home.setStyleSheet("background:rgb(91,90,90);")
+        self.page_about_home.setObjectName("page_about_home")
+        self.verticalLayout_13 = QtWidgets.QVBoxLayout(self.page_about_home)
+        self.verticalLayout_13.setContentsMargins(5, 5, 5, 5)
+        self.verticalLayout_13.setSpacing(5)
+        self.verticalLayout_13.setObjectName("verticalLayout_13")
+        self.lab_about_home = QtWidgets.QLabel(self.page_about_home)
+        self.lab_about_home.setMinimumSize(QtCore.QSize(0, 55))
+        self.lab_about_home.setMaximumSize(QtCore.QSize(16777215, 55))
+        font = QtGui.QFont()
+        font.setFamily("Segoe UI")
+        font.setPointSize(24)
+        self.lab_about_home.setFont(font)
+        self.lab_about_home.setStyleSheet("color:rgb(255,255,255);")
+        self.lab_about_home.setObjectName("lab_about_home")
+        self.verticalLayout_13.addWidget(self.lab_about_home)
+        self.frame_about_home = QtWidgets.QFrame(self.page_about_home)
+        self.frame_about_home.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame_about_home.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame_about_home.setObjectName("frame_about_home")
+        self.horizontalLayout_28 = QtWidgets.QHBoxLayout(self.frame_about_home)
+        self.horizontalLayout_28.setContentsMargins(5, 5, 0, 5)
+        self.horizontalLayout_28.setSpacing(0)
+        self.horizontalLayout_28.setObjectName("horizontalLayout_28")
+        self.text_about_home = QtWidgets.QTextEdit(self.frame_about_home)
+        self.text_about_home.setEnabled(True)
+        font = QtGui.QFont()
+        font.setFamily("Segoe UI")
+        font.setPointSize(10)
+        self.text_about_home.setFont(font)
+        self.text_about_home.setStyleSheet("color:rgb(255,255,255);")
+        self.text_about_home.setFrameShape(QtWidgets.QFrame.NoFrame)
+        self.text_about_home.setFrameShadow(QtWidgets.QFrame.Plain)
+        self.text_about_home.setReadOnly(True)
+        self.text_about_home.setTextInteractionFlags(QtCore.Qt.TextBrowserInteraction)
+        self.text_about_home.setObjectName("text_about_home")
+        self.horizontalLayout_28.addWidget(self.text_about_home)
+        self.vsb_about_home = QtWidgets.QScrollBar(self.frame_about_home)
+        self.vsb_about_home.setStyleSheet("QScrollBar:vertical {\n"
+"    background:rgb(51,51,51);\n"
+"    width:20px;\n"
+"    margin: 0px 0px 0px 0px;\n"
+"}\n"
+"QScrollBar::handle:vertical {\n"
+"    background:rgb(0,143,170);\n"
+"}\n"
+"QScrollBar::add-page:vertical {\n"
+"     background:rgb(51,51,51);\n"
+"}\n"
+"QScrollBar::sub-page:vertical {\n"
+"     background:rgb(51,51,51);\n"
+"}")
+        self.vsb_about_home.setOrientation(QtCore.Qt.Vertical)
+        self.vsb_about_home.setObjectName("vsb_about_home")
+        self.horizontalLayout_28.addWidget(self.vsb_about_home)
+        self.verticalLayout_13.addWidget(self.frame_about_home)
+        self.stackedWidget.addWidget(self.page_about_home)
+        self.page_about_cloud = QtWidgets.QWidget()
+        self.page_about_cloud.setStyleSheet("background:rgb(91,90,90);")
+        self.page_about_cloud.setObjectName("page_about_cloud")
+        self.horizontalLayout_29 = QtWidgets.QHBoxLayout(self.page_about_cloud)
+        self.horizontalLayout_29.setObjectName("horizontalLayout_29")
+        self.label_10 = QtWidgets.QLabel(self.page_about_cloud)
+        font = QtGui.QFont()
+        font.setFamily("Segoe UI")
+        font.setPointSize(30)
+        self.label_10.setFont(font)
+        self.label_10.setStyleSheet("color:rgb(255,255,255);")
+        self.label_10.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_10.setObjectName("label_10")
+        self.horizontalLayout_29.addWidget(self.label_10)
+        self.stackedWidget.addWidget(self.page_about_cloud)
+        self.page_about_android = QtWidgets.QWidget()
+        self.page_about_android.setStyleSheet("background:rgb(91,90,90);")
+        self.page_about_android.setObjectName("page_about_android")
+        self.stackedWidget.addWidget(self.page_about_android)
+        self.page_about_bug = QtWidgets.QWidget()
+        self.page_about_bug.setStyleSheet("background:rgb(91,90,90);")
+        self.page_about_bug.setObjectName("page_about_bug")
+        self.stackedWidget.addWidget(self.page_about_bug)
         self.horizontalLayout_14.addWidget(self.stackedWidget)
         self.verticalLayout_2.addWidget(self.frame)
         self.frame_low = QtWidgets.QFrame(self.frame_bottom_east)
@@ -2484,46 +2356,39 @@ class Ui_MainWindow(object):
         self.bn_bug.setToolTip(_translate("MainWindow", "Bug"))
         self.bn_cloud.setToolTip(_translate("MainWindow", "Cloud"))
         self.bn_android.setToolTip(_translate("MainWindow", "Android"))
-        self.label_home_main_title.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:20pt;\">Транспортируемая единица</span></p></body></html>"))
+        self.lab_bug_title.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:18pt; color:#ffffff;\">Список</span></p></body></html>"))
+        item = self.bug_table_widget.verticalHeaderItem(0)
+        item.setText(_translate("MainWindow", " "))
+        item = self.bug_table_widget.horizontalHeaderItem(0)
+        item.setText(_translate("MainWindow", "ID"))
+        item = self.bug_table_widget.horizontalHeaderItem(1)
+        item.setText(_translate("MainWindow", "Категория"))
+        item = self.bug_table_widget.horizontalHeaderItem(2)
+        item.setText(_translate("MainWindow", "Дата отправления"))
+        item = self.bug_table_widget.horizontalHeaderItem(3)
+        item.setText(_translate("MainWindow", "Дата прибытия"))
+        item = self.bug_table_widget.horizontalHeaderItem(4)
+        item.setText(_translate("MainWindow", "Пункт назначения"))
+        self.label_home_main_title.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:18pt;\">Транспортируемая единица</span></p></body></html>"))
         self.line_home_page_current.setText(_translate("MainWindow", "0"))
         self.label_home_main_slash.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:20pt; color:#ffffff;\">/</span></p></body></html>"))
         self.line_home_page_total.setText(_translate("MainWindow", "0"))
         self.bn_home_page_previous.setText(_translate("MainWindow", "<"))
         self.bn_home_page_next.setText(_translate("MainWindow", ">"))
         self.label_home_line08.setText(_translate("MainWindow", "Т / С"))
-        self.line_home_value03.setText(_translate("MainWindow", " "))
         self.label_home_line05.setText(_translate("MainWindow", "Дата прибытия"))
         self.label_home_line10.setText(_translate("MainWindow", "Пункт назначения "))
         self.label_home_line02.setText(_translate("MainWindow", "Масса"))
         self.label_home_line06.setText(_translate("MainWindow", "Категория"))
         self.label_home_line07.setText(_translate("MainWindow", "Статус"))
-        self.line_home_value09.setText(_translate("MainWindow", " "))
         self.label_home_line03.setText(_translate("MainWindow", "Оценочная стоимость "))
-        self.line_home_value02.setText(_translate("MainWindow", " "))
         self.bn_android_contact_edit_3.setText(_translate("MainWindow", "Edit"))
         self.bn_android_contact_share_3.setText(_translate("MainWindow", "Share"))
         self.bn_android_contact_delete_3.setText(_translate("MainWindow", "Delete"))
         self.bn_android_contact_save_3.setText(_translate("MainWindow", "Save"))
         self.label_home_line09.setText(_translate("MainWindow", "Пункт отправления"))
-        self.line_home_value06.setText(_translate("MainWindow", " "))
-        self.line_home_value01.setText(_translate("MainWindow", " "))
-        self.line_home_value04.setText(_translate("MainWindow", " "))
-        self.line_home_value07.setText(_translate("MainWindow", " "))
         self.label_home_line04.setText(_translate("MainWindow", "Дата отправления"))
-        self.line_home_value08.setText(_translate("MainWindow", " "))
         self.label_home_line01.setText(_translate("MainWindow", "Наименование "))
-        self.lab_about_home.setText(_translate("MainWindow", "About: Home"))
-        self.label_10.setText(_translate("MainWindow", "Empty"))
-        self.lab_Bug.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" color:#ffffff;\">Bugs Found</span></p></body></html>"))
-        self.lab_bug2.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" color:#ffffff;\">Simple TO</span></p></body></html>"))
-        self.lab_bug3.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" color:#ffffff;\">Sertilage</span></p></body></html>"))
-        self.comboBox_bug.setItemText(0, _translate("MainWindow", "100000"))
-        self.comboBox_bug.setItemText(1, _translate("MainWindow", "1000000"))
-        self.comboBox_bug.setItemText(2, _translate("MainWindow", "10000000"))
-        self.comboBox_bug.setItemText(3, _translate("MainWindow", "100000000"))
-        self.lab_bug1.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" color:#ffffff;\">Vore/Lore</span></p></body></html>"))
-        self.bn_bug_start.setText(_translate("MainWindow", "Start"))
-        self.lab_bug_action.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" color:#ffffff;\">Action: </span></p></body></html>"))
         self.lab_cloud_main.setText(_translate("MainWindow", "Cloud Connect"))
         self.label_2.setText(_translate("MainWindow", "Client ID :"))
         self.label_3.setText(_translate("MainWindow", "Server Adress :"))
@@ -2560,6 +2425,8 @@ class Ui_MainWindow(object):
         self.checkBox_3.setText(_translate("MainWindow", "Did you like the Stacked Window"))
         self.groupBox.setTitle(_translate("MainWindow", "Sliders"))
         self.label_9.setText(_translate("MainWindow", "VACANT? TRY YOUR IMAGINATION"))
+        self.lab_about_home.setText(_translate("MainWindow", "About: Home"))
+        self.label_10.setText(_translate("MainWindow", "Empty"))
         self.lab_tab.setText(_translate("MainWindow", "<html><head/><body><p><br/></p></body></html>"))
         self.frame_drag.setToolTip(_translate("MainWindow", "Drag"))
 
